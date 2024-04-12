@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+<!--    <parent>-->
+<!--        <groupId>io.camunda.connector</groupId>-->
+<!--        <artifactId>connector-google-parent</artifactId>-->
+<!--        <version>1.0.1-SNAPSHOT</version>-->
+<!--        <relativePath>../pom.xml</relativePath>-->
+<!--    </parent>-->
+
+    <name>connector-google-books</name>
+    <description>Camunda Google Books Connector</description>
+    <artifactId>connector-google-books</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <groupId>io.camunda.connector</groupId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Java version for everything except Connector SDK -->
+        <version.java>21</version.java>
+        <!-- Java version for Connector SDK -->
+        <version.java.connector-sdk>21</version.java.connector-sdk>
+
+
+        <!-- connector SDK version -->
+        <version.connectors>8.4.3</version.connectors>
+
+        <version.google-api-services-books>v1-rev114-1.25.0</version.google-api-services-books>
+        <version.lombok>1.18.32</version.lombok>
+        <version.jackson>2.12.1</version.jackson>
+        <version.gson>2.9.1</version.gson>
+
+        <maven.compiler.target>${version.java}</maven.compiler.target>
+        <maven.compiler.source>${version.java}</maven.compiler.source>
+    </properties>
+
+    <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>io.camunda.connector</groupId>-->
+<!--            <artifactId>connector-google-base</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-books</artifactId>
+            <version>${version.google-api-services-books}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.camunda.connector</groupId>
+            <artifactId>connector-core</artifactId>
+            <version>${version.connectors}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.camunda.connector</groupId>
+            <artifactId>connector-validation</artifactId>
+            <version>${version.connectors}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Element template generator annotations (compile-time only) -->
+        <dependency>
+            <groupId>io.camunda.connector</groupId>
+            <artifactId>element-template-generator-core</artifactId>
+            <version>${version.connectors}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- test dependencies -->
+        <dependency>
+            <groupId>io.camunda.connector</groupId>
+            <artifactId>connector-test</artifactId>
+            <version>${version.connectors}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${version.jackson}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${version.gson}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Rest Controller-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.2.4</version>
+        </dependency>
+    </dependencies>
+
+</project>
